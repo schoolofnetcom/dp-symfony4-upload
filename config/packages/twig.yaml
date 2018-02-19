@@ -1,0 +1,7 @@
+twig:
+    paths: ['%kernel.project_dir%/templates']
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+    globals:
+      caminho_capa: '/uploads/capas/'
+      caminho_ebook: '/uploads/ebooks/'

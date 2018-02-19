@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="display-2">Listagem de livros</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-12"><a class="btn btn-primary" href="{{ path('cadastrar_livro') }}">Cadastrar livro</a></div>
+    </div>
+    <table class="table table-hover table-striped">
+        <thead>
+        <tr>
+            <th>Cod.</th>
+            <th>Título</th>
+            <th>Capa</th>
+            <th>E-book (download)</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for livro in livros %}
+        <tr>
+            <td>{{ livro.id }}</td>
+            <td>{{ livro.titulo }}</td>
+            <td><img src="{{ caminho_capa ~ livro.capa }}" alt="" width="100"></td>
+            <td><a href="{{ path('download_livro', {'id': livro.id}) }}">Fazer download</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block title %}
+    Listar Livros
+{% endblock %}
+
